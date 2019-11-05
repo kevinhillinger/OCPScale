@@ -1,5 +1,5 @@
 ---
-title: Tech Intensity Workshop
+title: Hybrid Cloud
 has_children: true
 nav_order: 2
 ---
