@@ -9,7 +9,7 @@ You will setup an IaaS VM with Active Directory via a JSON template from GitHub.
 
 ### Cloud Shell
 
-Setup variables and create the Resource Group for the lab.
+Declare the necessary variables and create the Resource Group for the lab.
 
 ```bash
 location=<selected region>
@@ -22,13 +22,14 @@ Now create the deployment of the AD instance.
 
 ```bash
 template_uri=https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/active-directory-new-domain/azuredeploy.json
+
 az group deployment create --resource-group $group_name --name domaincontroller \
   --template-uri $template_uri\
   --parameters \
-        adminUsername=adadmin \
-        adminPassword=Azuret1workshop! \
-        domainName=azureworkshop.io \
-        dnsPrefix=$name_suffix
+    adminUsername=adadmin \
+    adminPassword=Azuret1workshop! \
+    domainName=azureworkshop.io \
+    dnsPrefix=$name_suffix
 
 echo "Public FQDN: ${name_suffix}.${location}.cloudapp.azure.com"
 ```
@@ -44,14 +45,14 @@ echo "Public FQDN: ${name_suffix}.${location}.cloudapp.azure.com"
     * Admin Username: Enter **adadmin** 
     * Admin Password: Enter **Azuret1workshop!**
     * Domain name:  azureworkshop.io
-    * DNS Prefix: *<your student id>*
+    * DNS Prefix: **`<your student id>`**
 5. Scroll down and select  **I agree to the terms and conditions stated above** and then **Purchase**.  
 
     > Monitor the deployment by clicking on the “Deploying Template deployment” tile within the Azure Portal.
     > Confirm that you don’t have any validation errors.  If you do, correct them before moving forward.
     > If the deployment fails, examine the logs to see what the root cause is, and then delete the Resource Group and start again.
 
-__NOTE: The deployment and build of the VM will take upwards of 30 minutes depending on several factors.  Don’t forget that we’re not only spinning up a VM but we are also installing and configuring DNS and running DCPromo.  Please return to the instructor’s presentation.__
+_NOTE: The deployment and build of the VM will take upwards of 30 minutes depending on several factors.  Don’t forget that we’re not only spinning up a VM but we are also installing and configuring DNS and running DCPromo.  Please return to the instructor’s presentation._
 
 ## Task 2 - Connect to the Domain Controller and create a user account
 
