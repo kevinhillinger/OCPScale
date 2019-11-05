@@ -3,22 +3,55 @@
 ## Task 1 - Deploy a Domain Controller
 You will setup an IaaS VM with Active Directory via a JSON template from GitHub.  Although this domain controller is the in the cloud, we’ll use it to simulate an on-premises domain controller.
 
+| Username  | Password         |
+|-----------|------------------|
+| adadmin | Azuret1workshop! |
+
+### Cloud Shell
+
+Setup variables and create the Resource Group for the lab.
+
+```bash
+location=<selected region>
+name_suffix="<your student id>"
+group_name=identitylab
+az group create -l $location -n $group_name
+```
+
+Now create the deployment of the AD instance.
+
+```bash
+template_uri=https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/active-directory-new-domain/azuredeploy.json
+az group deployment create --resource-group $group_name --name domaincontroller \
+  --template-uri $template_uri\
+  --parameters \
+        adminUsername=adadmin \
+        adminPassword=Azuret1workshop! \
+        domainName=azureworkshop.io \
+        dnsPrefix=$name_suffix
+
+echo "Public FQDN: ${name_suffix}.${location}.cloudapp.azure.com"
+```
+
+### Portal
+
 1. Login to your Azure subscription.
-2. Surf to <https://azure.microsoft.com/en-us/resources/templates/active-directory-new-domain/>
+2. Go to <https://azure.microsoft.com/en-us/resources/templates/active-directory-new-domain/>
 3. Select **Deploy to Azure**. The Azure Portal will open and a template will appear.
 4. Enter the following information:
-    * Resource Group: Create New: **AZDCRG**
+    * Resource Group: Create New: **identitylab**
     * Location: Pick a supported location
-    * Admin Username: Enter **yourname** *(you should write this down)*
-    * Admin Password: Enter **Complex.Password** *(you should write this down)*
-    * Domain name:  Enter a FQDN such as mydomainname.com and keep the name shorter than 15 characters (that’s a NetBIOS restriction).
-    * DNS Prefix: *pickyourown* (e.g. use the letter “a” and then the last four digits of your cell phone, a1234)
-5. Scroll down and select  **I agree to the terms and conditions stated above** and then **Purchase**.  Monitor the deployment by clicking on the “Deploying Template deployment” tile within the Azure Portal.
-    * Confirm that you don’t have any validation errors.  If you do, correct them before moving forward.
-    * If the deployment fails, examine the logs to see what the root cause is.
-    * You’ll need to delete the Resource Group before you try running the template again.
-    * If the template takes you back to the Microsoft Azure portal and the deployment begins, monitor the status for any errors.
-6. The deployment and build of the VM will take upwards of 30 minutes depending on several factors.  Don’t forget that we’re not only spinning up a VM but we are also installing and configuring DNS and running DCPromo.  Please return to the instructor’s presentation.
+    * Admin Username: Enter **adadmin** 
+    * Admin Password: Enter **Azuret1workshop!**
+    * Domain name:  azureworkshop.io
+    * DNS Prefix: *<your student id>*
+5. Scroll down and select  **I agree to the terms and conditions stated above** and then **Purchase**.  
+
+    > Monitor the deployment by clicking on the “Deploying Template deployment” tile within the Azure Portal.
+    > Confirm that you don’t have any validation errors.  If you do, correct them before moving forward.
+    > If the deployment fails, examine the logs to see what the root cause is, and then delete the Resource Group and start again.
+
+__NOTE: The deployment and build of the VM will take upwards of 30 minutes depending on several factors.  Don’t forget that we’re not only spinning up a VM but we are also installing and configuring DNS and running DCPromo.  Please return to the instructor’s presentation.__
 
 ## Task 2 - Connect to the Domain Controller and create a user account
 

@@ -8,9 +8,9 @@ You will receive a unique student ID prior to the workshop. This will be used th
 ### Default Credentials
 Whenever a a resources is created, including VM credentials, accounts, etc. the following credentials should be used:
 
-| Username | azureuser         |
-|----------|-------------------|
-| Password | Azureworkshopt1w! |
+| Username  | Password         |
+|-----------|------------------|
+| azureuser | Azuret1workshop! |
 
 ### Regions
 
