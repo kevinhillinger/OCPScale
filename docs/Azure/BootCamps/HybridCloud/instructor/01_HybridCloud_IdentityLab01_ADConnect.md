@@ -1,5 +1,8 @@
 # Hybrid Identity Hands-On Lab
 
+Azureworkshopt1w!
+old password: Azuret1w!
+
 ## Before you Begin
 
 If you are using a Microsoft Azure subscription that was provided to you by Microsoft, you are limited to a specific set of Microsoft Azure regions that you can use. Please use either the **East US, South Central US, West Europe, Southeast Asia, West US 2, or West Central US locations**.
@@ -24,7 +27,7 @@ az group deployment create \
   --template-uri $template_uri\
   --parameters \
         adminUsername=azureuser \
-        adminPassword=Azuret1w! \
+        adminPassword=Azureworkshopt1w! \
         domainName=azureworkshop.io \
         dnsPrefix=$name_suffix
 
@@ -62,7 +65,7 @@ $lastName="Prem"
 New-ADUser -Name "$firstName $lastName" -GivenName $firstName -Surname $lastName `
     -SamAccountName "onprem" -UserPrincipalName "onprem@azureworkshop.io" `
     -Path "CN=Users,DC=azureworkshop,DC=io" `
-    -AccountPassword (ConvertTo-SecureString "Azuret1w!" -AsPlainText -Force) -PasswordNeverExpires `
+    -AccountPassword (ConvertTo-SecureString "Azureworkshopt1w!" -AsPlainText -Force) -PasswordNeverExpires `
     -Enabled $true
 
 ```
@@ -126,6 +129,20 @@ az vm create -g $group_name -n $vm_name \
 
 ### Configure DNS
 
+```bash
+group_name=$(az group list --query "[?contains(name, 'tiw')].name" -o tsv)
+vm_name=ADConnect
+
+# get private ip of the Active Directory VM
+ad_vm_name=adVM
+ad_vm_ip=$(az vm show -n $ad_vm_name -g $group_name -o tsv -d --query privateIps)
+
+# update nic to use this DNS
+nic_id=$(az vm show -n $vm_name -g $group_name -o tsv --query networkProfile.networkInterfaces[0].id)
+az network nic update --id $nic_id --dns-servers $ad_vm_ip
+az vm restart -g $group_name -n $vm_name --no-wait --force
+```
+
 1. Within **Server Manager**, click on **Local Server**.
 2. Click on **IPv4 address assigned by DHCP, IPv6 enabled setting** for the Ethernet connection.
 3. Right-click on the network adapter and choose **Properties**.
@@ -135,6 +152,14 @@ az vm create -g $group_name -n $vm_name \
 7. Once the VM is successfully restarted, connect to the ADConnect VM and logon as ADAdmin.
 
 ## Task 5 - Join the Domain
+
+```bash
+group_name=$(az group list --query "[?contains(name, 'tiw')].name" -o tsv)
+vm_name=ADConnect
+
+adconnect_ip=$(az vm show -d -g $group_name -n $vm_name --query publicIps -o tsv)
+echo "Public IP: ${adconnect_ip}"
+```
 
 1. Within **Server Manager**, click on **Local Server**.
 2. Click on **WORKGROUP**, then **Change** to rename this computer or join it to a domain.
@@ -156,6 +181,15 @@ az vm create -g $group_name -n $vm_name \
 ## Task 7 - Create a Sync Account
 
 We are going to create an account that AD Connect will use to perform the synchronization process bethween the on-prem domain controller and Azure Active Directory.
+
+```bash
+
+az ad user create --display-name "AD Sync" --password "Azureworkshopt1w!" \
+    --user-principal-name adsync
+    --force-change-password-next-login false
+    --mail-nickname adsync
+    
+```
 
 1. In Azure Active Directory, under **Manage** choose **Users** and then under **All users** click on **+New User** and enter the following:
     * User name: **adsync**
