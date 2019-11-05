@@ -1,7 +1,9 @@
 ---
-title: Tech Intensity Workshop
-has_children: true
-nav_order: 2
+layout: default
+title: Workshop
+nav_order: 1
+description: "dfgdfgdfg"
+permalink: /
 ---
 
 # Tech Intensity Workshop
