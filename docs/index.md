@@ -1,5 +1,5 @@
-# Common Training Content
+# Tech Intensity Workshop
 
-- [Azure](./Azure)
-- [Modern Workplace](./ModernWorkplace) (coming soon)
-- [Business Applications](./BusinessApplications) (coming soon)
+## Azure Hybrid Cloud
+
+[Table of contents](azure/hybrid-cloud/index.md)
