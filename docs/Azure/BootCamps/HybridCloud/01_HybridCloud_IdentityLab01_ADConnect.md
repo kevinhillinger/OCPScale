@@ -1,17 +1,9 @@
 # Hybrid Identity Hands-On Lab
 
-## Before you Begin
+## Task 1 - Deploy a Domain Controller
+You will setup an IaaS VM with Active Directory via a JSON template from GitHub.  Although this domain controller is the in the cloud, we’ll use it to simulate an on-premises domain controller.
 
-If you are using a Microsoft Azure subscription that was provided to you by Microsoft, you are limited to a specific set of Microsoft Azure regions that you can use. Please use either the **East US, South Central US, West Europe, Southeast Asia, West US 2, or West Central US locations**.
-Otherwise you will receive an  error in the portal if you select an unsupported region and attempt to build anything in Microsoft Azure.
-
-## Task 1 - Setup an IaaS Domain Controller via JSON Template
-
-We will setup an IaaS VM with Active Directory via a JSON template from GitHub.  Although this domain controller is the in the cloud, we’ll use it to simulate an on-prem domain controller.
-
-### Install the domain controller
-
-1. Logon to your Azure subscription.
+1. Login to your Azure subscription.
 2. Surf to <https://azure.microsoft.com/en-us/resources/templates/active-directory-new-domain/>
 3. Select **Deploy to Azure**. The Azure Portal will open and a template will appear.
 4. Enter the following information:
@@ -92,7 +84,7 @@ We are creating a small VM to be used later to host Azure AD Connect.
 4. In the Windows Security box enter the AD Domain Admin credentials you specified in the template.
 5. Click **Ok** on the Welcome screen, **Ok** on the Computer Name/Domain Changes window, **Close**, then **Restart Now**.
 
-## Task 6 - Install Azure Active Directory
+## Task 6 - Create an Azure Active Directory Tenant
 
 1. In the Azure Portal, click  **+Create a resource** and then select **Identity**, then **Azure Active Directory**.
 2. Enter the following on the **Create directory tab**:

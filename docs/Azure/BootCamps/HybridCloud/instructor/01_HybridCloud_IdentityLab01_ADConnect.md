@@ -26,7 +26,7 @@ az group deployment create \
   --resource-group $group_name \
   --template-uri $template_uri\
   --parameters \
-        adminUsername=azureuser \
+        adminUsername=adadmin \
         adminPassword=Azureworkshopt1w! \
         domainName=azureworkshop.io \
         dnsPrefix=$name_suffix
@@ -65,7 +65,7 @@ $lastName="Prem"
 New-ADUser -Name "$firstName $lastName" -GivenName $firstName -Surname $lastName `
     -SamAccountName "onprem" -UserPrincipalName "onprem@azureworkshop.io" `
     -Path "CN=Users,DC=azureworkshop,DC=io" `
-    -AccountPassword (ConvertTo-SecureString "Azureworkshopt1w!" -AsPlainText -Force) -PasswordNeverExpires `
+    -AccountPassword (ConvertTo-SecureString "Azurewrkshopt1w!" -AsPlainText -Force) -PasswordNeverExpires `
     -Enabled $true
 
 ```
@@ -167,7 +167,7 @@ echo "Public IP: ${adconnect_ip}"
 4. In the Windows Security box enter the AD Domain Admin credentials you specified in the template.
 5. Click **Ok** on the Welcome screen, **Ok** on the Computer Name/Domain Changes window, **Close**, then **Restart Now**.
 
-## Task 6 - Install Azure Active Directory
+## Task 6 - Create an Azure Active Directory Tenant
 
 1. In the Azure Portal, click  **+Create a resource** and then select **Identity**, then **Azure Active Directory**.
 2. Enter the following on the **Create directory tab**:
@@ -178,18 +178,9 @@ echo "Public IP: ${adconnect_ip}"
 3. Click **Create**.  It will take several minutes for the directory to be created.
 4. Once complete, select Click **here** to manage your new directory.
 
-## Task 7 - Create a Sync Account
+## Task 7 - Create a Sync Account in Azure AD
 
 We are going to create an account that AD Connect will use to perform the synchronization process bethween the on-prem domain controller and Azure Active Directory.
-
-```bash
-
-az ad user create --display-name "AD Sync" --password "Azureworkshopt1w!" \
-    --user-principal-name adsync
-    --force-change-password-next-login false
-    --mail-nickname adsync
-    
-```
 
 1. In Azure Active Directory, under **Manage** choose **Users** and then under **All users** click on **+New User** and enter the following:
     * User name: **adsync**
