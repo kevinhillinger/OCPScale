@@ -29,7 +29,7 @@ If you are using a Microsoft Azure subscription that was provided to you by Micr
 Below are the labs for the Tech intensity Workshop's Azure Hybrid Cloud.
 
 ### Lab 1 - Hybrid Identity
-1. [AD Connect Infrastructure Setup](01_HybridCloud_IdentityLab01_ADConnect.md)
+1. [AD Connect Infrastructure Setup](hybrid-identity/adconnect.md)
 2. [AD Connect High Availability (Optional)](01_HybridCloud_IdentityLab02_ADConnectOptionalFeatures.md)
 3. [AD Connect Publishing a SSO Application (Optional)](01_HybridCloud_IdentityLab03_SSOApp(Optional).md)
 

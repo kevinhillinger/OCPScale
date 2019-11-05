@@ -52,13 +52,22 @@ echo "Public FQDN: ${name_suffix}.${location}.cloudapp.azure.com"
     > Confirm that you don’t have any validation errors.  If you do, correct them before moving forward.
     > If the deployment fails, examine the logs to see what the root cause is, and then delete the Resource Group and start again.
 
-_NOTE: The deployment and build of the VM will take upwards of 30 minutes depending on several factors.  Don’t forget that we’re not only spinning up a VM but we are also installing and configuring DNS and running DCPromo.  Please return to the instructor’s presentation._
+_NOTE: The deployment and build of the VM can take ~30 minutes to provision and install DNS + Domain Controller.  Please return to the instructor’s presentation._
 
-## Task 2 - Connect to the Domain Controller and create a user account
+## Task 2 - Connect to Domain Controller and Create a Domain User
 
-1. Connect to the adVM virtual machine and logon with your domain account by selecting **Microsoft Azure / Resource Groups / AZDCRG / adVM / Connect**.  
+| Username  | Password         |
+|-----------|------------------|
+| adadmin | Azuret1workshop! |
+
+### Portal
+
+1. In the Search (top of the portal), type "adVM" and select the resource from the results
 2. Click on **Download RDP File**.
-3. Logon with the fully qualified credentials you wrote down earlier (e.g. yourname@yourdomain.com).  You may have to choose __More Choices__ then **Use a different account** to enter your new set of credentials.
+3. Logon with  _adadmin@azureworkshop.io_ credentials
+
+### RDP Session
+
 4. If prompted, click **No** on the Network Discovery blade.
 5. Within Server Manager, click **Tools** and then **Active Directory Users and Computers**.
 6. Expand the tree and select the **Users Container**.
@@ -68,11 +77,43 @@ _NOTE: The deployment and build of the VM will take upwards of 30 minutes depend
     * Last Name: **Prem**
     * Full Name: **On Prem**
     * User Logon Name: **onprem**
-9. Click **Next** and set the password to *Complex.Password*. Uncheck **User must change password at next logon**, and set the **Password never expires** checkbox.
-10. Click **Next** then **Finish**.
-11. Minimize the RDP window.
+9. Click **Next** and set the password to *Azuret1workshop!*
+10. Uncheck **User must change password at next logon** and set the **Password never expires** checkbox.
+11. Click **Next** then **Finish**
 
-## Task 3 - Create a virtual machine
+#### Powershell (Run as administrator)
+The following can also be used to create the user using PowerShell.
+
+```powershell
+# create the new user
+Import-Module ActiveDirectory
+
+$firstName="On"
+$lastName="Prem"
+
+New-ADUser -Name "$firstName $lastName" -GivenName $firstName -Surname $lastName `
+    -SamAccountName "onprem" -UserPrincipalName "onprem@azureworkshop.io" `
+    -Path "CN=Users,DC=azureworkshop,DC=io" `
+    -AccountPassword (ConvertTo-SecureString "Azuret1workshop!" -AsPlainText -Force) -PasswordNeverExpires `
+    -Enabled $true
+```
+
+## Task 3 - Create an AD Connect Server
+
+### Cloud Shell
+
+```bash
+group_name=$(az group list --query "[?contains(name, 'tiw')].name" -o tsv)
+location=$(az group list --query "[?contains(name, 'tiw')].location" -o tsv)
+vm_name=ADConnect
+
+az vm create -g $group_name -n $vm_name \
+    --image win2016datacenter \
+    --admin-username azureuser \
+    --admin-password "Azuret1workshop!" \
+    --size Standard_DS2_v2 \
+    --nsg-rule RDP
+```
 
 We are creating a small VM to be used later to host Azure AD Connect.
 
