@@ -1,10 +1,12 @@
 ---
+layout: default
 title: Hybrid Cloud
+nav_order: 1
 has_children: true
-nav_order: 2
+permalink: /docs/hybridcloud
 ---
 
-# Tech Intensity Workshop - Azure Hybrid Cloud
+# Azure Hybrid Cloud
 
 ## Before You Begin
 
