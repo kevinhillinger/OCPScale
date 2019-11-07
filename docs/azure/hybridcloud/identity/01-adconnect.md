@@ -1,4 +1,7 @@
-# Hybrid Identity
+---
+title: AD Connect
+nav_order: 1
+---
 
 ## Task 1 - Deploy a Domain Controller
 You will setup an IaaS VM with Active Directory via a JSON template from GitHub.  Although this domain controller is the in the cloud, we’ll use it to simulate an on-premises domain controller.

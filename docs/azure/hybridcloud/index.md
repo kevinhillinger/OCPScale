@@ -3,7 +3,7 @@ layout: default
 title: Hybrid Cloud
 nav_order: 1
 has_children: true
-permalink: /docs/hybridcloud
+permalink: /docs/azure/hybridcloud
 ---
 
 # Azure Hybrid Cloud
