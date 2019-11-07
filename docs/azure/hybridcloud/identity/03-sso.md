@@ -1,3 +1,11 @@
+---
+title: SSO App
+parent: Identity
+nav_order: 3
+permalink: /docs/azure/hybridcloud/identity/sso
+---
+
+
 # Hybrid Identity Hands-On Lab
 
 ## Password single sign-on for an Azure AD gallery application
