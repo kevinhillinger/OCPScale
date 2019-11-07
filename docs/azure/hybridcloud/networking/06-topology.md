@@ -1,3 +1,10 @@
+---
+title: Topology
+parent: Networking
+nav_order: 6
+permalink: /docs/azure/hybridcloud/networking/topology
+---
+
 # Hub and Spoke Networking Challenge 
 Now that you have vNet1 and vNet2 peered, resources in each virtual network and subnet can communicate with each other.  A common networking architecture is a hub-spoke network topology where the hub is a single virtual network (VNet) in Azure that acts as a central point of connectivity to your virtual networks (VNets). The spokes are VNets that peer with the hub, and can be used to isolate workloads.
 

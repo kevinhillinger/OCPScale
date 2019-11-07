@@ -1,3 +1,10 @@
+---
+title: Virtual Networks
+parent: Networking
+nav_order: 1
+permalink: /docs/azure/hybridcloud/networking/virtual-networks
+---
+
 # Lab 1 - Virtual Networks
 
 ## Before you Begin

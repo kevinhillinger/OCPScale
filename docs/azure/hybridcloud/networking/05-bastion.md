@@ -1,3 +1,10 @@
+---
+title: Bastion
+parent: Networking
+nav_order: 5
+permalink: /docs/azure/hybridcloud/networking/bastion
+---
+
 # Azure Bastion Lab
 
 ## What is Azure Bastion? (Preview)

@@ -1,3 +1,11 @@
+---
+title: Case Study
+parent: Solutioning
+nav_order: 1
+permalink: /docs/azure/hybridcloud/solutioning/case-study
+---
+
+
 # Azure Hackathon Case Study
 
 

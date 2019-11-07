@@ -1,3 +1,11 @@
+---
+title: Traffic Manager
+parent: Networking
+nav_order: 3
+permalink: /docs/azure/hybridcloud/networking/traffic-manager
+---
+
+
 # Lab 3 - Traffic Manager
 
 This lab requires that you have deploy two instances of a web application running in different Azure regions supported by your subscription (e.g. East US and West US2). The two web application instances serve as primary and backup endpoints for Traffic Manager.
