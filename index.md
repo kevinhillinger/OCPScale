@@ -3,7 +3,7 @@ title: Hybrid Cloud
 has_children: true
 ---
 
-# Tech Intensity Workshop - Azure Hybrid Cloud
+# Tech Intensity Workshop: Azure Hybrid Cloud
 
 ## Before You Begin
 
