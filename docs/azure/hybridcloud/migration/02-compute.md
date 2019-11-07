@@ -1,3 +1,10 @@
+---
+title: Compute
+parent: Migration
+nav_order: 2
+permalink: /docs/azure/hybridcloud/migration/compute
+---
+
 # Azure Migration Lab #2
 
 ## Azure Site Recovery for Migration  
