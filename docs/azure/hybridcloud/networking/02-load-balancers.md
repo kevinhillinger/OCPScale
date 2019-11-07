@@ -2,7 +2,7 @@
 title: Load Balancers
 parent: Networking
 nav_order: 2
-permalink: /docs/azure/hybridcloud/networking/load-balancers
+permalink: /azure/hybridcloud/networking/load-balancers
 ---
 
 # Lab 2 - Load Balancer

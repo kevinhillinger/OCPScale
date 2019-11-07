@@ -2,7 +2,7 @@
 title: Traffic Manager
 parent: Networking
 nav_order: 3
-permalink: /docs/azure/hybridcloud/networking/traffic-manager
+permalink: /azure/hybridcloud/networking/traffic-manager
 ---
 
 

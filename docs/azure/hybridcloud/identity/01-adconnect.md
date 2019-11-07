@@ -2,7 +2,7 @@
 title: AD Connect
 parent: Identity
 nav_order: 1
-permalink: /docs/azure/hybridcloud/identity/adconnect
+permalink: /azure/hybridcloud/identity/adconnect
 ---
 
 ## Task 1 - Deploy a Domain Controller

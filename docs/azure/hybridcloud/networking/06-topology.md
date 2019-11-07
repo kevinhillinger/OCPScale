@@ -2,7 +2,7 @@
 title: Topology
 parent: Networking
 nav_order: 6
-permalink: /docs/azure/hybridcloud/networking/topology
+permalink: /azure/hybridcloud/networking/topology
 ---
 
 # Hub and Spoke Networking Challenge 

@@ -4,7 +4,7 @@ title: Hybrid Cloud
 parent: Azure
 nav_order: 1
 has_children: true
-permalink: /docs/azure/hybridcloud
+permalink: /azure/hybridcloud
 ---
 
 # Azure Hybrid Cloud

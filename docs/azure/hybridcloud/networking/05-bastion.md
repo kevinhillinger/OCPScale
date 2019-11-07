@@ -2,7 +2,7 @@
 title: Bastion
 parent: Networking
 nav_order: 5
-permalink: /docs/azure/hybridcloud/networking/bastion
+permalink: /azure/hybridcloud/networking/bastion
 ---
 
 # Azure Bastion Lab

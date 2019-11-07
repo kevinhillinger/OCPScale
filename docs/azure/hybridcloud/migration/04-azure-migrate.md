@@ -2,7 +2,7 @@
 title: Azure Migrate
 parent: Migration
 nav_order: 2
-permalink: /docs/azure/hybridcloud/migration/azure-migrate
+permalink: /azure/hybridcloud/migration/azure-migrate
 ---
 
 # Azure Migration Lab

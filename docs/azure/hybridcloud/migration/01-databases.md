@@ -2,7 +2,7 @@
 title: Databases
 parent: Migration
 nav_order: 1
-permalink: /docs/azure/hybridcloud/migration/databases
+permalink: /azure/hybridcloud/migration/databases
 ---
 
 # Azure Migration

@@ -2,7 +2,7 @@
 title: Compliance
 parent: Migration
 nav_order: 3
-permalink: /docs/azure/hybridcloud/migration/compliance
+permalink: /azure/hybridcloud/migration/compliance
 ---
 
 # Azure Migration Lab

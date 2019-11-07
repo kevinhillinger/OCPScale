@@ -2,7 +2,7 @@
 title: Network Watcher
 parent: Networking
 nav_order: 4
-permalink: /docs/azure/hybridcloud/networking/network-watcher
+permalink: /azure/hybridcloud/networking/network-watcher
 ---
 
 

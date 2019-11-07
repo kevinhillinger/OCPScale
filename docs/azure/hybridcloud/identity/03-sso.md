@@ -2,7 +2,7 @@
 title: SSO App
 parent: Identity
 nav_order: 3
-permalink: /docs/azure/hybridcloud/identity/sso
+permalink: /azure/hybridcloud/identity/sso
 ---
 
 

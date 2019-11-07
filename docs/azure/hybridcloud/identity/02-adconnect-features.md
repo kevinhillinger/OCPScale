@@ -2,7 +2,7 @@
 title: AD Connect Features
 parent: Identity
 nav_order: 2
-permalink: /docs/azure/hybridcloud/identity/adconnect-features
+permalink: /azure/hybridcloud/identity/adconnect-features
 ---
 
 # Hybrid Identity Hands-On Lab
