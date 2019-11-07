@@ -1,7 +1,6 @@
 ---
 title: Hybrid Cloud
 has_children: true
-nav_order: 2
 ---
 
 # Tech Intensity Workshop - Azure Hybrid Cloud
