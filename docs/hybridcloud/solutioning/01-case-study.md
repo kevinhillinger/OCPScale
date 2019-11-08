@@ -1,6 +1,6 @@
 ---
 title: Case Study
-parent: Solutioning
+parent: Solution Design
 nav_order: 1
 permalink: /azure/hybridcloud/solutioning/case-study
 ---
