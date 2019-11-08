@@ -7,6 +7,10 @@ a {
   background-color: #ebebeb;
 }
 
+.site-header {
+  min-height: 150px !important;
+}
+
 .navigation-list-child-list {
   display: block !important;
 }
@@ -19,3 +23,12 @@ $purple-000: #0178d4 !default;
 $purple-100: #1d6eaf !default;
 $purple-200: #4e26af !default;
 // $purple-300: #381885 !default;
+
+@media (min-width: 50rem) {
+  .navigation {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      overflow-y: auto;
+      flex: 1 1 auto;
+  }
+}
