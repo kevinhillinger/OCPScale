@@ -5,18 +5,16 @@ nav_order: 2
 permalink: /azure/hybridcloud/identity/adconnect-features
 ---
 
-# Hybrid Identity Hands-On Lab
+# Pass Thru Authentication and High Availability
 
-## Pass Thru Authentication and High Availability
-
-### Complete this lab if time permits
+Complete this lab if time permits
 
 ## Before you Begin
 
 If you are using a Microsoft Azure subscription that was provided to you by Microsoft, you are limited to a specific set of Microsoft Azure regions that you can use. Please use either the **East US, South Central US, West Europe, Southeast Asia, West US 2, or West Central US locations**.
 Otherwise you will receive an  error in the portal if you select an unsupported region and attempt to build anything in Microsoft Azure.
 
-## Task 1: Enable the feature
+## 1. Enable the feature
 
 ### Enable Pass-through Authentication through Azure AD Connect
 
@@ -27,7 +25,7 @@ Otherwise you will receive an  error in the portal if you select an unsupported 
 
 **Pass-through Authentication is a tenant-level feature. Turning it on affects the sign-in for users across all the managed domains in your tenant.**
 
-## Task 2: Test Pass-through Authentication
+## 2. Test Pass-through Authentication
 
 Follow these instructions to verify that you have enabled Pass-through Authentication correctly:
 
@@ -37,7 +35,7 @@ Follow these instructions to verify that you have enabled Pass-through Authentic
 4. Verify that the Pass-through authentication feature appears as Enabled.
 5. Select Pass-through authentication. The Pass-through authentication pane lists the servers where your Authentication Agents are installed.
 
-## Task 3: Ensure high availability
+## 3. Implement High Availability
 
 If you plan to deploy Pass-through Authentication in a production environment, you should install additional standalone Authentication Agents. Install these Authentication Agent(s) on server(s) other than the one running Azure AD Connect. This setup provides you with high availability for user sign-in requests.
 
@@ -100,4 +98,5 @@ We are creating a small VM to host the Azure AD Connect Authentication Agent.
     * Click **Close** when complete.
 7. Click **Refresh** on the Azure portal.  You'll notice that ADConnect2 now appears in the default group.
 
-## Repeat the previous steps to create and configure a third VM named **ADConnect3**
+## 4. AD Connect Node 3
+Repeat all the steps of task 3 to create the a third VM named **ADConnect3**

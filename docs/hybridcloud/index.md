@@ -6,7 +6,9 @@ has_children: true
 permalink: /azure/hybridcloud
 ---
 
-# Azure Hybrid Cloud
+<img src="img/microsoft-azure-logo.png" alt="alt text" width="200"  />
+
+# Azure - Hybrid Cloud
 
 ## Before You Begin
 

@@ -5,7 +5,9 @@ nav_order: 1
 permalink: /azure/hybridcloud/identity/adconnect
 ---
 
-## Task 1 - Deploy a Domain Controller
+# Implement an Azure AD Connect
+
+## 1. Deploy a Domain Controller
 You will setup an IaaS VM with Active Directory via a JSON template from GitHub.  Although this domain controller is the in the cloud, we’ll use it to simulate an on-premises domain controller.
 
 | Username  | Password         |
@@ -59,7 +61,7 @@ echo "Public FQDN: ${name_suffix}.${location}.cloudapp.azure.com"
 
 _NOTE: The deployment and build of the VM can take ~30 minutes to provision and install DNS + Domain Controller.  Please return to the instructor’s presentation._
 
-## Task 2 - Connect to Domain Controller and Create a Domain User
+## 2. Connect to Domain Controller and Create a Domain User
 
 | Username  | Password         |
 |-----------|------------------|
@@ -103,7 +105,7 @@ New-ADUser -Name "$firstName $lastName" -GivenName $firstName -Surname $lastName
     -Enabled $true
 ```
 
-## Task 3 - Create an AD Connect Server
+## 3. Create an AD Connect Server
 
 ### Cloud Shell
 
@@ -138,7 +140,7 @@ We are creating a small VM to be used later to host Azure AD Connect.
     * Select inbound ports: **RDP (3389)**
 4. Click **Review + create** and then **Create**.   After validation passes, monitor your deployment status. It should take less than 10 minutes to spin up the VM.
 
-## Task 4 - Join the ADConnect VM to the domain
+## 4. Join AD Connect VM
 
 1. Connect to the **ADConnect** virtual machine and logon as ADAdmin. **Microsoft Azure / Resource Groups / AZDCRG / ADConnect / Connect.**
 2. If prompted, click **No** on the Network discovery blade.
@@ -156,7 +158,7 @@ We are creating a small VM to be used later to host Azure AD Connect.
 6. You will then lose connection to the ADConnect VM, this is expected. Once you are back at the Microsoft Azure Portal, click **Restart** to restart the ADConnect VM.
 7. Once the VM is successfully restarted, connect to the ADConnect VM and logon as ADAdmin.
 
-## Task 5 - Join the Domain
+### Join the Domain
 
 1. Within **Server Manager**, click on **Local Server**.
 2. Click on **WORKGROUP**, then **Change** to rename this computer or join it to a domain.
@@ -164,7 +166,7 @@ We are creating a small VM to be used later to host Azure AD Connect.
 4. In the Windows Security box enter the AD Domain Admin credentials you specified in the template.
 5. Click **Ok** on the Welcome screen, **Ok** on the Computer Name/Domain Changes window, **Close**, then **Restart Now**.
 
-## Task 6 - Create an Azure Active Directory Tenant
+## 5. Create an Azure Active Directory Tenant
 
 1. In the Azure Portal, click  **+Create a resource** and then select **Identity**, then **Azure Active Directory**.
 2. Enter the following on the **Create directory tab**:
@@ -175,7 +177,7 @@ We are creating a small VM to be used later to host Azure AD Connect.
 3. Click **Create**.  It will take several minutes for the directory to be created.
 4. Once complete, select Click **here** to manage your new directory.
 
-## Task 7 - Create a Sync Account
+## 6. Create a Sync Account
 
 We are going to create an account that AD Connect will use to perform the synchronization process bethween the on-prem domain controller and Azure Active Directory.
 
@@ -190,7 +192,7 @@ We are going to create an account that AD Connect will use to perform the synchr
 5. Change your password to *Complex.Password* and then click **Sign in**.
 6. Close your inprivate or incognito browser.
 
-## Task 8 - Sync Azure AD with Windows Server AD (AD DS)
+## 7.  Sync Azure AD with Windows Server AD (AD DS)
 
 ### Install Azure Active Directory Connect
 
@@ -200,7 +202,7 @@ We are going to create an account that AD Connect will use to perform the synchr
 4. Click **Download**, then **Run** when prompted.
 Close Internet Explorer.
 
-## Task 9 -  Configure Azure Active Directory Connect
+## 8. Configure Azure Active Directory Connect
 
 1. On the Welcome to Azure AD Connect screen select **I agree** then **Continue**.
 2. Review the screen and select **Use express settings**.
@@ -213,9 +215,12 @@ Close Internet Explorer.
 7. It may take 5-10 minutes for Azure AD Connect to complete installation. Read the **Configuration Complete** screen and then click **Exit**.
 8. Minimize your RDP window.
 
-## Task 10 - Validate Synchronization
+## 9. Validate Synchronization
 
 1. Switch to the Azure portal and examine your Azure AD Directory by selecting the xxxx.onmicrosoft.com  Directory from the upper right hand corner of the portal.
 2. Note that you should see accounts sourced from Active Directory that have synchronized to Azure Active Directory (e.g. On Prem).
 
-### Congratulations!  Your are now synchronizing Active Directory to Azure Active Directory
+## Validate
+Your environment should now represent a fully synchronizing Active Directory Directory Service instance (AD) to Azure Active Directory (AAD).
+
+Next: 

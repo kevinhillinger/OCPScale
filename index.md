@@ -2,7 +2,7 @@
 title: Home
 ---
 
-# Tech Intensity Workshop
+# Microsoft Tech Intensity Workshop
 
 ## Azure 
 
